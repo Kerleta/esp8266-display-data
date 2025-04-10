@@ -1,4 +1,4 @@
 {
   "message": "Selamat ulang tahun!",
-  "image_url": "https://cdn.jsdelivr.net/gh/Kerleta/esp8266-display-data@main/epd_bitmap_.bin"
+  "image_url": "http://kerleta.github.io/esp8266-display-data/epd_bitmap_.bin"
 }
