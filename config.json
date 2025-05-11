@@ -1,8 +1,8 @@
 {
   "message": "selamat ulang tahun!",
   "image_urls": [
-    "https://raw.githubusercontent.com/Kerleta/esp8266-display-data/main/epd_bitmap_1.bin",
-    "https://raw.githubusercontent.com/Kerleta/esp8266-display-data/main/epd_bitmap_2.bin",
-    "https://raw.githubusercontent.com/Kerleta/esp8266-display-data/main/epd_bitmap_3.bin"
+    "https://raw.githubusercontent.com/Kerleta/esp8266-display-data/main/epd_bitmap_.bin",
+    "https://raw.githubusercontent.com/Kerleta/esp8266-display-data/main/epd_bitmap_%202.bin",
+    "https://raw.githubusercontent.com/Kerleta/esp8266-display-data/main/epd_bitmap_3.bin",
   ]
 }
