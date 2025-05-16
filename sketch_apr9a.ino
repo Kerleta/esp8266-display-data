@@ -34,7 +34,6 @@ bool showColon = true;
 // == Gambar ==
 const int maxImages = 5;  // Ditambah kapasitas gambar
 String imageURLs[maxImages] = {
-  // FIXED URLs with exact filenames from your GitHub
   "https://raw.githubusercontent.com/Kerleta/esp8266-display-data/main/epd_bitmap_.bin",
   "https://raw.githubusercontent.com/Kerleta/esp8266-display-data/main/epd_bitmap_%202.bin",
   "https://raw.githubusercontent.com/Kerleta/esp8266-display-data/main/epd_bitmap_3.bin",
@@ -44,10 +43,10 @@ String imageURLs[maxImages] = {
 uint8_t imageBuffers[maxImages][1024]; // Array buffer untuk menyimpan semua gambar
 bool imageReady[maxImages] = {false, false, false, false, false};
 int currentImageIndex = 0;
-int activeImageCount = 3;  // Mulai dengan 3 gambar yang sudah ada
+int activeImageCount = 3;
 
 // == Config update ==
-// URL ke file konfigurasi di repo GitHub Anda
+// URL ke file konfigurasi di repo GitHub
 const String configURL = "https://raw.githubusercontent.com/Kerleta/esp8266-display-data/main/config.json";
 unsigned long lastConfigCheck = 0;
 const unsigned long configCheckInterval = 3600000;  // Cek update setiap 1 jam
@@ -149,7 +148,7 @@ void fetchConfig() {
   }
 
   WiFiClientSecure client;
-  client.setInsecure(); // Hati-hati, lebih baik set fingerprint
+  client.setInsecure();
   HTTPClient https;
 
   Serial.println("[HTTP] Memulai koneksi ke: " + configURL);
@@ -181,7 +180,7 @@ void fetchConfig() {
         }
       }
 
-      // Update URL gambar - PERBAIKAN DI SINI
+      // Update URL gambar
       if (doc.containsKey("image_urls")) {
         JsonArray urls = doc["image_urls"];
         activeImageCount = urls.size();
@@ -191,7 +190,6 @@ void fetchConfig() {
         for (int i = 0; i < activeImageCount; i++) {
           String newURL = urls[i].as<String>();
           imageURLs[i] = newURL;
-          // Reset status gambar karena URL baru
           imageReady[i] = false;
           Serial.printf("  imageURLs[%d] = %s\n", i, imageURLs[i].c_str());
         }
@@ -419,7 +417,7 @@ void setup() {
 
   display.clearDisplay();
   display.setCursor(10, 25);
-  display.println("Ready!");
+  display.println("Siap?!");
   display.display();
   
   nextSwitchMillis = millis() + switchInterval;
